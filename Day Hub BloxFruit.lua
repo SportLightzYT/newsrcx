@@ -38,3 +38,6 @@ Fluent:Notify({
     SubContent = "SubContent",
     Duration = 5
 })
+SaveManager:SetLibrary(Fluent)
+InterfaceManager:SetLibrary(Fluent)
+SaveManager:LoadAutoloadConfig()
