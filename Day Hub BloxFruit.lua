@@ -15,7 +15,8 @@ local Window = Fluent:CreateWindow({
 local Tabs = {
     Main = Window:AddTab({ Title = "Main", Icon = "home" }),
     SeaEvent = Window:AddTab({ Title = "SeaEvent", Icon = "waves" }),
-    Setting = Window:AddTab({ Title = "Setting", Icon = "settings" }),
+    Status = Window:AddTab({ Title = "Status", Icon = "cloud-moon" }),
+    Setting = Window:AddTab({ Title = "Setting", Icon = "settings" })
     Stats = Window:AddTab({ Title = "Stats", Icon = "plus-circle" }),
     Player = Window:AddTab({ Title = "Player", Icon = "box" }),
     Teleport = Window:AddTab({ Title = "Island", Icon = "palmtree" }),
@@ -2590,7 +2591,7 @@ end)
 
     local ToggleLevel = Tabs.Main:AddToggle("ToggleLevel", {
         Title = "Auto Level",
-        Description = "Cày Cấp Độ",
+        Description = "ออโต้ฟาร์มเลเวล",
         Default = false })
     ToggleLevel:OnChanged(function(Value)
         _G.AutoLevel = Value
@@ -2701,7 +2702,7 @@ end)
 
     local ToggleMobAura = Tabs.Main:AddToggle("ToggleMobAura", {
         Title = "Kill Near | Mob Aura",
-        Description = "Đánh Quái Ở Gần",
+        Description = "ฆ่ามอนเตอร์รอบๆ",
         Default = false })
     ToggleMobAura:OnChanged(function(Value)
         _G.AutoNear = Value
@@ -2748,7 +2749,7 @@ end)
 
     local ToggleCastleRaid = Tabs.Main:AddToggle("ToggleCastleRaid", {
         Title = "Auto Castle Raid | Pirates Castle",
-        Description = "Đánh Hải Tặc ở Pháo Đài", 
+        Description = "ออโต้ฆ่าโจรสลัดเกาะกลาง", 
         Default = false })
     ToggleCastleRaid:OnChanged(function(Value)
         _G.CastleRaid = Value
@@ -2864,7 +2865,7 @@ function TPchest(P1)
 if Third_Sea then
 local ToggleChest = Tabs.Main:AddToggle("ToggleChest", {
     Title = "Auto Chest Stop If Has Items [Tp]",
-    Description = "Nhặt Rương dừng Khi Có Vật Phẩm [Tp]", 
+    Description = "ออโต้ฟาร์มกล่องมันจะหยุดถ้ามีของ [แบบวาป]", 
     Default = false })
 ToggleChest:OnChanged(function(Value)
     _G.chestsea3 = Value
@@ -2875,7 +2876,7 @@ end
 if Second_Sea then
 local ToggleChest = Tabs.Main:AddToggle("ToggleChest", {
     Title = "Auto Chest Stop If Has Items [Tp]",
-    Description = "Nhặt Rương dừng Khi Có Vật Phẩm [Tp]", 
+    Description = "ออโต้ฟาร์มกล่องมันจะหยุดถ้ามีของ [แบบวาป]", 
     Default = false })
 ToggleChest:OnChanged(function(Value)
     _G.chestsea2 = Value
@@ -2885,7 +2886,7 @@ end
 
 local ToggleChestTween = Tabs.Main:AddToggle("ToggleChestTween", {
     Title = "Auto Chest [Tween]",
-    Description = "Nhặt Rương [Bay]", 
+    Description = "ออโต้ฟาร์มกล่อง [แบบบิน]", 
     Default = false })
 ToggleChestTween:OnChanged(function(Value)
     AutoFarmChest = Value
@@ -2919,7 +2920,7 @@ end)
 
       Tabs.Main:AddButton({
         Title = "Redeem All Code",
-        Description = "Nhập Hết Code",
+        Description = "ใช้งานโค้ด X2",
         Callback = function()
             UseCode()
         end
@@ -2948,7 +2949,7 @@ end)
 
     Tabs.Main:AddButton({
         Title = "Fps Booster",
-        Description = "Giảm Lag",
+        Description = "ภาพกาก",
         Callback = function()
             FPSBooster()
         end
@@ -3001,7 +3002,7 @@ end)
 local Mastery = Tabs.Main:AddSection("Mastery Farm")
     local DropdownMastery = Tabs.Main:AddDropdown("DropdownMastery", {
         Title = "Mastery Mode",
-        Description = "Chọn Chế Độ Thông Thạo",
+        Description = "ออโต้ฟาร์ม ความชำนาญ",
         Values = {"Level","Near Mobs",},
         Multi = false,
         Default = 1,
@@ -3015,7 +3016,7 @@ local Mastery = Tabs.Main:AddSection("Mastery Farm")
 
     local ToggleMasteryFruit = Tabs.Main:AddToggle("ToggleMasteryFruit", {
         Title = "Auto BF Mastery",
-        Description = "Cày Thông Thạo Trái", 
+        Description = "ออโต้ฟาร์ม ความชำนาญผลไม้ปีศาจ", 
         Default = false })
     ToggleMasteryFruit:OnChanged(function(Value)
         AutoFarmMasDevilFruit = Value
@@ -3026,7 +3027,7 @@ local Mastery = Tabs.Main:AddSection("Mastery Farm")
 
     local SliderHealt = Tabs.Main:AddSlider("SliderHealt", {
         Title = "Health (%) Mob",
-        Description = "Phần Trăm Máu Quái",
+        Description = "เลือกเลือดมอเตอร์",
         Default = 25,
         Min = 0,
         Max = 100,
@@ -3187,7 +3188,7 @@ local MiscFarm = Tabs.Main:AddSection("Misc Farm")
 if Third_Sea then
 local ToggleBone = Tabs.Main:AddToggle("ToggleBone", {
     Title = "Auto Bone",
-    Description = "Cày Xương", 
+    Description = "ออโต้ฟาร์มกระดูก", 
     Default = false })
 ToggleBone:OnChanged(function(Value)
     _G.AutoBone = Value
@@ -3258,7 +3259,7 @@ end)
 
 local ToggleCake = Tabs.Main:AddToggle("ToggleCake", {
     Title = "Auto Cake Prince",
-    Description = "Cày Tư Lệnh Bột", 
+    Description = "ออโต้ฟาร์มคาตาคุริ", 
     Default = false })
 ToggleCake:OnChanged(function(Value)
  _G.CakePrince = Value
@@ -3323,7 +3324,7 @@ spawn(function()
 
     local ToggleSpawnCake = Tabs.Main:AddToggle("ToggleSpawnCake", {
         Title = "Auto Spawn Cake Prince",
-        Description = "Tự Động Triệu Hồi Tư lệnh Bột", 
+        Description = "ออโต้เสกบอสคาตาคุริ", 
         Default = true })
     ToggleSpawnCake:OnChanged(function(Value)
       _G.SpawnCakePrince = Value
@@ -3350,7 +3351,7 @@ end)
     if Second_Sea then
     local ToggleVatChatKiDi = Tabs.Main:AddToggle("ToggleVatChatKiDi", {
         Title = "Auto Ectoplasm",
-        Description = "Cày vật Chất kì Dị", 
+        Description = "ออโต้ฟาร์ม เศษเขียว", 
         Default = false })
     ToggleVatChatKiDi:OnChanged(function(Value)
         _G.Ectoplasm = Value
@@ -3410,7 +3411,7 @@ local boss = Tabs.Main:AddSection("Boss Farm")
 
     local DropdownBoss = Tabs.Main:AddDropdown("DropdownBoss", {
         Title = "Dropdown",
-        Description = "Chọn Boss",
+        Description = "เลือกบอส",
         Values = tableBoss,
         Multi = false,
         Default = 1,
@@ -3423,7 +3424,7 @@ local boss = Tabs.Main:AddSection("Boss Farm")
 
 	local ToggleAutoFarmBoss = Tabs.Main:AddToggle("ToggleAutoFarmBoss", {
         Title = "Kill Boss",
-        Description = "Đánh Boss", 
+        Description = "ฆ่าบอส", 
         Default = false })
 
     ToggleAutoFarmBoss:OnChanged(function(Value)
@@ -3480,7 +3481,7 @@ local boss = Tabs.Main:AddSection("Boss Farm")
 
     local DropdownMaterial = Tabs.Main:AddDropdown("DropdownMaterial", {
         Title = "Dropdown",
-        Description = "Chọn Nguyên Liệu",
+        Description = "เลือกของที่จะฟาร์ม",
         Values = MaterialList,
         Multi = false,
         Default = 1,
@@ -3494,7 +3495,7 @@ local boss = Tabs.Main:AddSection("Boss Farm")
 
     local ToggleMaterial = Tabs.Main:AddToggle("ToggleMaterial", {
         Title = "Auto Material",
-        Description = "Cày Nguyên Liệu", 
+        Description = "ออโต้ฟาร์มของที่เลือก", 
         Default = false })
 
     ToggleMaterial:OnChanged(function(Value)
@@ -3554,7 +3555,7 @@ local boss = Tabs.Main:AddSection("Boss Farm")
       local RoughSea = Tabs.Main:AddSection("🦊 Kitsune 🦊")
 
 
-      local ToggleEspKitsune = Tabs.Main:AddToggle("ToggleEspKitsune", {Title = "Esp Kitsune Island",Description = "Định vị Đảo kisune", Default = false })
+      local ToggleEspKitsune = Tabs.Main:AddToggle("ToggleEspKitsune", {Title = "Esp Kitsune Island",Description = "จุดบอกตำแหน่ง เกาะจิ้งจอก", Default = false })
       ToggleEspKitsune:OnChanged(function(Value)
         KitsuneIslandEsp = Value
         while KitsuneIslandEsp do wait()
@@ -3597,7 +3598,7 @@ local boss = Tabs.Main:AddSection("Boss Farm")
         end
     end
 
-      local ToggleTPKitsune = Tabs.Main:AddToggle("ToggleTPKitsune", {Title = "Tween To Kitsune Island",Description = "Di Chuyển Đến Đảo Kisune", Default = false })
+      local ToggleTPKitsune = Tabs.Main:AddToggle("ToggleTPKitsune", {Title = "Tween To Kitsune Island",Description = "บินไปเกาะ จิ้งจอก", Default = false })
       ToggleTPKitsune:OnChanged(function(Value)
         _G.TweenToKitsune = Value
       end)
@@ -3623,7 +3624,7 @@ local boss = Tabs.Main:AddSection("Boss Farm")
     end)
 
 
-      local ToggleCollectAzure = Tabs.Main:AddToggle("ToggleCollectAzure", {Title = "Collect Azure Ambers",Description = "Nhặt Hồn Lửa", Default = false })
+      local ToggleCollectAzure = Tabs.Main:AddToggle("ToggleCollectAzure", {Title = "Collect Azure Ambers",Description = "ออโต้เก็บลูกไฟ", Default = false })
       ToggleCollectAzure:OnChanged(function(Value)
          _G.CollectAzure = Value
       end)
@@ -3645,7 +3646,7 @@ end
 if Third_Sea then
     local RoughSea = Tabs.Main:AddSection("Rough Sea")
 
-    local ToggleSailBoat = Tabs.Main:AddToggle("ToggleSailBoat", {Title = "Auto buy Boat",Description = "Mua Thuyền + Ngồi Vào", Default = false })
+    local ToggleSailBoat = Tabs.Main:AddToggle("ToggleSailBoat", {Title = "Auto buy Boat",Description = "ออโต้ซื้อเรือ", Default = false })
     ToggleSailBoat:OnChanged(function(Value)
         _G.SailBoat = Value
     end)
@@ -3706,7 +3707,7 @@ if Third_Sea then
 	end)
 	
 
-    local ToggleTerrorshark = Tabs.Main:AddToggle("ToggleTerrorshark", {Title = " Kill Terrorshark",Description = "Đánh Terrorshark", Default = false })
+    local ToggleTerrorshark = Tabs.Main:AddToggle("ToggleTerrorshark", {Title = " Kill Terrorshark",Description = "ออโต้ฆ่าบอสฉลาม", Default = false })
 
     ToggleTerrorshark:OnChanged(function(Value)
         _G.AutoTerrorshark = Value
@@ -3747,7 +3748,7 @@ if Third_Sea then
 
 
 
-     local TogglePiranha = Tabs.Main:AddToggle("TogglePiranha", {Title = " Kill Piranha",Description = "Đánh Piranha", Default = false })
+     local TogglePiranha = Tabs.Main:AddToggle("TogglePiranha", {Title = " Kill Piranha",Description = "ออโต้ฆ่า ปลาปิรันย่า", Default = false })
 
      TogglePiranha:OnChanged(function(Value)
         _G.farmpiranya = Value
@@ -3789,7 +3790,7 @@ if Third_Sea then
 
 
 
-     local ToggleShark = Tabs.Main:AddToggle("ToggleShark", {Title = " Kill Shark",Description = "Đánh Cá", Default = false })
+     local ToggleShark = Tabs.Main:AddToggle("ToggleShark", {Title = " Kill Shark",Description = "ออโต้ฆ่าฉลาม", Default = false })
      ToggleShark:OnChanged(function(Value)
         _G.AutoShark = Value
      end)
@@ -3830,7 +3831,7 @@ if Third_Sea then
 
 
 
-    local ToggleFishCrew = Tabs.Main:AddToggle("ToggleFishCrew", {Title = " Kill Fish Crew",Description = "Đánh Fish Crew", Default = false })
+    local ToggleFishCrew = Tabs.Main:AddToggle("ToggleFishCrew", {Title = " Kill Fish Crew",Description = "ออโต้ฆ่าฉลามสายฟ้า", Default = false })
     ToggleFishCrew:OnChanged(function(Value)
        _G.AutoFishCrew = Value
     end)
@@ -3876,7 +3877,7 @@ if Third_Sea then
 
 
 
-    local ToggleShip = Tabs.Main:AddToggle("ToggleShip", {Title = "Kill Ship",Description = "Đánh Thuyền Hải Tặc", Default = false })
+    local ToggleShip = Tabs.Main:AddToggle("ToggleShip", {Title = "Kill Ship",Description = "ออโต้ตีเรือ", Default = false })
     ToggleShip:OnChanged(function(Value)
         _G.Ship = Value
        end)
@@ -3916,7 +3917,7 @@ end)
 
 
 
-    local ToggleGhostShip = Tabs.Main:AddToggle("ToggleGhostShip", {Title = "Kill Ghost Ship",Description = "Đánh Thuyền Ma",Default = false })
+    local ToggleGhostShip = Tabs.Main:AddToggle("ToggleGhostShip", {Title = "Kill Ghost Ship",Description = "ออโต้ตีเรือผี",Default = false })
     ToggleGhostShip:OnChanged(function(Value)
         _G.GhostShip = Value
        end)
@@ -4038,7 +4039,7 @@ spawn(function()
 
     local AutoElite = Tabs.Main:AddSection("Elite Hunter Farm")
 
-    local ToggleElite = Tabs.Main:AddToggle("ToggleElite", {Title = "Auto Elite Hunter",Description = "Đánh Boss Bí Ẩn", Default = false })
+    local ToggleElite = Tabs.Main:AddToggle("ToggleElite", {Title = "Auto Elite Hunter",Description = "ออโต้ตีอีลิตฮันเตอร์", Default = false })
 
     ToggleElite:OnChanged(function(Value)
        _G.AutoElite = Value
@@ -4096,7 +4097,7 @@ if Third_Sea then
     local Sea = Tabs.Main:AddSection("Sea Beast")
 
 
-local ToggleSeaBeAst = Tabs.Main:AddToggle("ToggleSeaBeAst", {Title = "Auto Sea Beast",Description = "Treo + Đánh Thủy Quái", Default = false })
+local ToggleSeaBeAst = Tabs.Main:AddToggle("ToggleSeaBeAst", {Title = "Auto Sea Beast",Description = "ออโต้หาเจ้าทะเล", Default = false })
 
 ToggleSeaBeAst:OnChanged(function(Value)
     _G.AutoSeaBeast = Value
@@ -4211,7 +4212,7 @@ ToggleSeaBeAst:OnChanged(function(Value)
         end
     end)
 
-local ToggleAutoW = Tabs.Main:AddToggle("ToggleAutoW", {Title = "Auto Press W",Description = "Tự Động Nhấn W", Default = false })
+local ToggleAutoW = Tabs.Main:AddToggle("ToggleAutoW", {Title = "Auto Press W",Description = "กดปุ่ม W ค้าง", Default = false })
 ToggleAutoW:OnChanged(function(Value)
     _G.AutoW = Value
     end)
@@ -4234,7 +4235,7 @@ ToggleAutoW:OnChanged(function(Value)
 
     Tabs.Main:AddButton({
         Title = "Tween to Mirage Island",
-        Description = "Bay Đến Đảo Bí Ẩn",
+        Description = "บินไปเกาะลับ",
         Callback = function()
             TweenMirage()
         end
@@ -4259,7 +4260,7 @@ ToggleAutoW:OnChanged(function(Value)
 
     Tabs.Main:AddButton({
         Title = "Tween to Highest Point",
-        Description = "Bay đến Chỗ Cao Nhất",
+        Description = "บินไปที่สูงที่สุดของเกาะลับ",
         Callback = function()
             TwenetoHighestPoint()
         end
@@ -4284,7 +4285,7 @@ ToggleAutoW:OnChanged(function(Value)
         end
     end
 
-local ToggleTweenGear = Tabs.Main:AddToggle("ToggleTweenGear", {Title = "Tween To Gear",Description = "Nhặt Bánh Răng", Default = false })
+local ToggleTweenGear = Tabs.Main:AddToggle("ToggleTweenGear", {Title = "Tween To Gear",Description = "บินหาเกียร์", Default = false })
 ToggleTweenGear:OnChanged(function(Value)
     _G.TweenToGear = Value
 end) 
@@ -4311,7 +4312,7 @@ spawn(function()
 
 
 
-    local Togglelockmoon = Tabs.Main:AddToggle("Togglelockmoon", {Title = "Lock Moon and Use Race Skill",Description = "Nhìn Trăng + Bật Tộc", Default = false })
+    local Togglelockmoon = Tabs.Main:AddToggle("Togglelockmoon", {Title = "Lock Moon and Use Race Skill",Description = "หน้าจอล็อคพระจันทร์และกดใช้เผ่าขั้น 3", Default = false })
     Togglelockmoon:OnChanged(function(Value)
         _G.AutoLockMoon = Value
     end) 
@@ -4343,14 +4344,14 @@ spawn(function()
     end)
 
 
-local ToggleMirage = Tabs.Main:AddToggle("ToggleMirage", {Title = "Auto Mirage Island",Description = "Treo Đảo Bí Ẩn", Default = false })
+local ToggleMirage = Tabs.Main:AddToggle("ToggleMirage", {Title = "Auto Mirage Island",Description = "ออโต้หาเกาะลับ", Default = false })
 ToggleMirage:OnChanged(function(Value)
  _G.AutoSeaBeast = Value
 end) 
 
  Options.ToggleMirage:SetValue(false)
 
- local AutoW = Tabs.Main:AddToggle("AutoW", {Title = "Auto Press W",Description = "Nhấn Phím W", Default = false })
+ local AutoW = Tabs.Main:AddToggle("AutoW", {Title = "Auto Press W",Description = "ออโต้กดปุ่ม W ค้าง", Default = false })
  AutoW:OnChanged(function(Value)
     _G.AutoW = Value
      end)
@@ -4369,7 +4370,7 @@ end
 local Items = Tabs.Main:AddSection("Items Farm")
 
 if Third_Sea then
-    local ToggleHallow = Tabs.Main:AddToggle("ToggleHallow", {Title = "Auto Hallow Scythe [Fully]",Description = "Cày Lưỡi Hái Bóng Tối ( Tự làm hết )", Default = false })
+    local ToggleHallow = Tabs.Main:AddToggle("ToggleHallow", {Title = "Auto Hallow Scythe [Fully]",Description = "ออโต้หาเคียว [เต็มระบบ]", Default = false })
 
     ToggleHallow:OnChanged(function(Value)
         AutoHallowSycthe = Value
@@ -4427,7 +4428,7 @@ if Third_Sea then
            end)
         
            
-           local ToggleYama = Tabs.Main:AddToggle("ToggleYama", {Title = "Auto Get Yama",Description = "Lấy kiếm Yama", Default = false })
+           local ToggleYama = Tabs.Main:AddToggle("ToggleYama", {Title = "Auto Get Yama",Description = "ออโต้ดคึงดาบยามะ", Default = false })
            ToggleYama:OnChanged(function(Value)
             _G.AutoYama = Value
            end)
@@ -4445,7 +4446,7 @@ if Third_Sea then
         end)
 
 
-        local ToggleTushita = Tabs.Main:AddToggle("ToggleTushita", {Title = "Auto Tushita",Description = "Đánh Boss Longma để láy Tushita", Default = false })
+        local ToggleTushita = Tabs.Main:AddToggle("ToggleTushita", {Title = "Auto Tushita",Description = "ออโต้ ทูชิตะ", Default = false })
         ToggleTushita:OnChanged(function(Value)
             AutoTushita = Value
         end)
@@ -4482,7 +4483,7 @@ if Third_Sea then
                    end)
 
 
-                   local ToggleHoly = Tabs.Main:AddToggle("ToggleHoly", {Title = "Auto Holy Torch",Description = "Thắp Duốc lấy Tushita", Default = false })
+                   local ToggleHoly = Tabs.Main:AddToggle("ToggleHoly", {Title = "Auto Holy Torch",Description = "ออโต้วางไฟ เควสทูชิตะ", Default = false })
                    ToggleHoly:OnChanged(function(Value)
                     _G.Auto_Holy_Torch = Value
                    end)
@@ -4510,7 +4511,7 @@ if Third_Sea then
 
 
 if Second_Sea then
-        local ToggleFactory = Tabs.Main:AddToggle("ToggleFactory", {Title = "Auto Farm Factory",Description = "Đánh nhà Máy", Default = false })
+        local ToggleFactory = Tabs.Main:AddToggle("ToggleFactory", {Title = "Auto Farm Factory",Description = "ออโต้ตีโรงงาน", Default = false })
         ToggleFactory:OnChanged(function(Value)
             _G.Factory = Value
         end)
@@ -4554,7 +4555,7 @@ if Second_Sea then
     end
 
         if Third_Sea then
-    local ToggleCakeV2 = Tabs.Main:AddToggle("ToggleCakeV2", {Title = "Kill Dought King [Need Spawn]",Description = "Đánh Tư Lệnh Bột V2 (Cần Triệu Hồi)", Default = false })
+    local ToggleCakeV2 = Tabs.Main:AddToggle("ToggleCakeV2", {Title = "Kill Dought King [Need Spawn]",Description = "ฆ่าบอสคาตาคุริร่าง 2 [บอสต้องเกิดก่อน]", Default = false })
     ToggleCakeV2:OnChanged(function(Value)
         _G.AutoCakeV2 = Value
     end)
@@ -4594,7 +4595,7 @@ end
 
     
 if Second_Sea or Third_Sea then
-    local ToggleHakiColor = Tabs.Main:AddToggle("ToggleHakiColor", {Title = "Buy Haki Color",Description = "Mua Haki Màu",Default = false })
+    local ToggleHakiColor = Tabs.Main:AddToggle("ToggleHakiColor", {Title = "Buy Haki Color",Description = "ออโต้ซื้อสีฮาคิ",Default = false })
     ToggleHakiColor:OnChanged(function(Value)
         _G.Auto_Buy_Enchancement = Value
     end)
@@ -4613,7 +4614,7 @@ if Second_Sea or Third_Sea then
 end
 
 if Second_Sea then
-    local ToggleSwordLengend = Tabs.Main:AddToggle("ToggleSwordLengend", {Title = "Buy Sword Lengendary",Description = "Mua Kiếm Huyền Thoại",Default = false })
+    local ToggleSwordLengend = Tabs.Main:AddToggle("ToggleSwordLengend", {Title = "Buy Sword Lengendary",Description = "ออโต้ซื้อดาบโซโล",Default = false })
     ToggleSwordLengend:OnChanged(function(Value)
         _G.BuyLengendSword = Value
     end)
@@ -4641,7 +4642,7 @@ if Second_Sea then
 local SettingFarm = Tabs.Setting:AddSection("Farming")
 
 
-    local ToggleBringMob = Tabs.Setting:AddToggle("ToggleBringMob", {Title = " Enable Bring Mob / Magnet",Description = "Gom Quái", Default = true })
+    local ToggleBringMob = Tabs.Setting:AddToggle("ToggleBringMob", {Title = " Enable Bring Mob / Magnet",Description = "รวมมอนเตอร์", Default = true })
     ToggleBringMob:OnChanged(function(Value)
         _G.BringMob = Value
     end)
@@ -4731,14 +4732,14 @@ local SettingFarm = Tabs.Setting:AddSection("Farming")
             end
             
 
-    local ToggleBypassTP = Tabs.Setting:AddToggle("ToggleBypassTP", {Title = "Enable Bypass Tp",Description = "Di Chuyển Dạng Reset", Default = false })
+    local ToggleBypassTP = Tabs.Setting:AddToggle("ToggleBypassTP", {Title = "Enable Bypass Tp",Description = "รีเซ็ตตัวเพื่อวาปไปยังเกาะที่กำหนด", Default = false })
     ToggleBypassTP:OnChanged(function(Value)
         BypassTP = Value
     end)
     Options.ToggleBypassTP:SetValue(false)
 
 
-local ToggleRemove = Tabs.Setting:AddToggle("ToggleRemove", {Title = " Enable Remove Dame Text",Description = "Ẩn Dame Đánh Quái", Default = true })
+local ToggleRemove = Tabs.Setting:AddToggle("ToggleRemove", {Title = " Enable Remove Dame Text",Description = "ลบดาเมจที่เป็นข้อวามบนหน้าจอ", Default = true })
 ToggleRemove:OnChanged(function(Value)
     _G.RemoveDameText = Value
     end)
@@ -4755,7 +4756,7 @@ ToggleRemove:OnChanged(function(Value)
         end)
 
         
-local ToggleRemoveNotify = Tabs.Setting:AddToggle("ToggleRemoveNotify", {Title = " Enable Remove All Notify",Description = "Ẩn hết Thông báo", Default = false })
+local ToggleRemoveNotify = Tabs.Setting:AddToggle("ToggleRemoveNotify", {Title = " Enable Remove All Notify",Description = "ลบการแจ้งเตือนทุกอย่างออก", Default = false })
 ToggleRemoveNotify:OnChanged(function(Value)
     RemoveNotify = Value
     end)
@@ -4773,7 +4774,7 @@ ToggleRemoveNotify:OnChanged(function(Value)
 
 
 
-    local ToggleWhite = Tabs.Setting:AddToggle("ToggleWhite", {Title = " Enable White Screen",Description = "Màn hình Treo", Default = false })
+    local ToggleWhite = Tabs.Setting:AddToggle("ToggleWhite", {Title = " Enable White Screen",Description = "เปิดจอขาว", Default = false })
     ToggleWhite:OnChanged(function(Value)
        _G.WhiteScreen = Value
        if _G.WhiteScreen == true then
@@ -4787,34 +4788,34 @@ ToggleRemoveNotify:OnChanged(function(Value)
 
 
         local SKill = Tabs.Setting:AddSection("Skill Mastery")
-local ToggleZ = Tabs.Setting:AddToggle("ToggleZ", {Title = "Skill Z",Description = "Kĩ Năng Z", Default = true })
+local ToggleZ = Tabs.Setting:AddToggle("ToggleZ", {Title = "Skill Z",Description = "สกิล Z", Default = true })
 ToggleZ:OnChanged(function(Value)
     SkillZ = Value
 end)
 Options.ToggleZ:SetValue(true)
 
-local ToggleX = Tabs.Setting:AddToggle("ToggleX", {Title = "Skill X", Description = "Kĩ Năng X",Default = true })
+local ToggleX = Tabs.Setting:AddToggle("ToggleX", {Title = "Skill X", Description = "สกิล X",Default = true })
 ToggleX:OnChanged(function(Value)
     SkillX = Value
 end)
 Options.ToggleX:SetValue(true)
 
 
-local ToggleC = Tabs.Setting:AddToggle("ToggleC", {Title = "Skill C",Description = "Kĩ Năng C", Default = true })
+local ToggleC = Tabs.Setting:AddToggle("ToggleC", {Title = "Skill C",Description = "สกิล C", Default = true })
 ToggleC:OnChanged(function(Value)
     SkillC = Value
 end)
 Options.ToggleC:SetValue(true)
 
 
-local ToggleV = Tabs.Setting:AddToggle("ToggleV", {Title = "Skill V",Description = "Kĩ Năng V", Default = true })
+local ToggleV = Tabs.Setting:AddToggle("ToggleV", {Title = "Skill V",Description = "สกิล V", Default = true })
 ToggleV:OnChanged(function(Value)
     SkillV = Value
 end)
 Options.ToggleV:SetValue(true)
 
 
-local ToggleF = Tabs.Setting:AddToggle("ToggleF", {Title = "Skill F",Description = "Kĩ Năng F", Default = false })
+local ToggleF = Tabs.Setting:AddToggle("ToggleF", {Title = "Skill F",Description = "สกิล F", Default = false })
 ToggleF:OnChanged(function(Value)
    SkillF = Value
     end)
@@ -4875,7 +4876,7 @@ SliderPosZ:SetValue(0)
 
 
 --Stats
-local ToggleMelee = Tabs.Stats:AddToggle("ToggleMelee", {Title = "Auto Melee",Description = "Nâng Melee", Default = false })
+local ToggleMelee = Tabs.Stats:AddToggle("ToggleMelee", {Title = "Auto Melee",Description = "ออโต้เพิ่มสแตท หมัด", Default = false })
 ToggleMelee:OnChanged(function(Value)
     _G.Auto_Stats_Melee = Value
     end)
@@ -4883,7 +4884,7 @@ Options.ToggleMelee:SetValue(false)
 
 
 
-local ToggleDe = Tabs.Stats:AddToggle("ToggleDe", {Title = "Auto Defense",Description = "Nâng Máu", Default = false })
+local ToggleDe = Tabs.Stats:AddToggle("ToggleDe", {Title = "Auto Defense",Description = "ออโต้เพิ่มสแตท เลือด/ป้องกัน", Default = false })
 ToggleDe:OnChanged(function(Value)
     _G.Auto_Stats_Defense = Value
     end)
@@ -4891,7 +4892,7 @@ Options.ToggleDe:SetValue(false)
 
 
 
-local ToggleSword = Tabs.Stats:AddToggle("ToggleSword", {Title = "Auto Sword",Description = "Nâng Kiếm", Default = false })
+local ToggleSword = Tabs.Stats:AddToggle("ToggleSword", {Title = "Auto Sword",Description = "ออโต้เพิ่มสแตท ดาบ", Default = false })
 ToggleSword:OnChanged(function(Value)
     _G.Auto_Stats_Sword = Value
     end)
@@ -4899,14 +4900,14 @@ Options.ToggleSword:SetValue(false)
 
 
 
-local ToggleGun = Tabs.Stats:AddToggle("ToggleGun", {Title = "Auto Gun", Description = "Nâng Súng",Default = false })
+local ToggleGun = Tabs.Stats:AddToggle("ToggleGun", {Title = "Auto Gun", Description = "ออโต้เพิ่มสแตท ปืน",Default = false })
 ToggleGun:OnChanged(function(Value)
     _G.Auto_Stats_Gun = Value
     end)
 Options.ToggleGun:SetValue(false)
 
 
-local ToggleFruit = Tabs.Stats:AddToggle("ToggleFruit", {Title = "Auto Demon Fruit",Description = "Nâng Trái Ác Quỷ", Default = false })
+local ToggleFruit = Tabs.Stats:AddToggle("ToggleFruit", {Title = "Auto Demon Fruit",Description = "ออโต้เพิ่มสแตท ผลไม้ปีศาจ", Default = false })
 ToggleFruit:OnChanged(function(Value)
     _G.Auto_Stats_Devil_Fruit = Value
     end)
@@ -4994,7 +4995,7 @@ end
 
 local SelectedPly = Tabs.Player:AddDropdown("SelectedPly", {
     Title = "Select Player",
-    Description = "Chọn Người Chơi",
+    Description = "เลือกคน",
     Values = Playerslist,
     Multi = false,
     Default = 1,
@@ -5008,7 +5009,7 @@ end)
 
 Tabs.Player:AddButton({
     Title = "Refresh Player",
-    Description = "Làm Mới Người Chơi",
+    Description = "รีเซ็ตหน้าเลือกคน",
     Callback = function()
         table.clear(Playerslist)
         for i,v in pairs(game:GetService("Players"):GetChildren()) do
@@ -5017,7 +5018,7 @@ Tabs.Player:AddButton({
     end
 })
 
-local ToggleTeleport = Tabs.Player:AddToggle("ToggleTeleport", {Title = "Teleport To Player", Description = "Bay Đến Người Chơi",Default = false })
+local ToggleTeleport = Tabs.Player:AddToggle("ToggleTeleport", {Title = "Teleport To Player", Description = "บินไปหาคนที่เลือก",Default = false })
 ToggleTeleport:OnChanged(function(Value)
     _G.TeleportPly = Value
     if Value == false then
@@ -5044,7 +5045,7 @@ end)
 
 
 
-local ToggleQuanSat = Tabs.Player:AddToggle("ToggleQuanSat", {Title = "Spectate Player",Description = "Quan sát Người Chơi", Default = false })
+local ToggleQuanSat = Tabs.Player:AddToggle("ToggleQuanSat", {Title = "Spectate Player",Description = "ส่องคนที่เลือก", Default = false })
 ToggleQuanSat:OnChanged(function(Value)
     SpectatePlys = Value
     local plr1 = game:GetService("Players").LocalPlayer.Character.Humanoid
@@ -5061,7 +5062,7 @@ Options.ToggleQuanSat:SetValue(false)
 
 
 
-local ToggleFastAttack = Tabs.Player:AddToggle("ToggleFastAttack", {Title = " Click Attack Player",Description = "Đánh Người Chơi", Default = false })
+local ToggleFastAttack = Tabs.Player:AddToggle("ToggleFastAttack", {Title = " Click Attack Player",Description = "คลิ๊กโจมตีคนที่เลือก", Default = false })
 
 ToggleFastAttack:OnChanged(function(Value)
  _G.FastAttackFaiFao = Value
@@ -5072,7 +5073,7 @@ Options.ToggleFastAttack:SetValue(false)
 
 local SliderDelayAttackPlayer = Tabs.Player:AddSlider("SliderDelayAttackPlayer", {
     Title = "Delay Fast (sec)",
-    Description = "Tốc độ Đánh (giây)",
+    Description = "ดีเลย์การตี [วินาที]",
     Default = 0.1,
     Min = 0,
     Max = 5,
@@ -5134,7 +5135,7 @@ local Teleport = Tabs.Player:AddSection("Combat")
 
 local SlidershowFov = Tabs.Player:AddSlider("SlidershowFov", {
     Title = "Size Fov",
-    Description = "Cỡ Fov",
+    Description = "สไลด์ Fov",
     Default = 100,
     Min = 0,
     Max = 500,
@@ -5150,14 +5151,14 @@ end)
 SlidershowFov:SetValue(100)
 
 
-local ToggleShowFov = Tabs.Player:AddToggle("ToggleShowFov", {Title = "Show Fov",Description = "Hiện Fov", Default = false })
+local ToggleShowFov = Tabs.Player:AddToggle("ToggleShowFov", {Title = "Show Fov",Description = "โชว์ Fov", Default = false })
 ToggleShowFov:OnChanged(function(value)
     _G.Show_Fov = value
 end)
 Options.ToggleShowFov:SetValue(false)
 
 
-local ToggleAimBotSkill = Tabs.Player:AddToggle("ToggleAimBotSkill", {Title = "Auto Aimbot Skill",Description = "Tự Động ngắm Skill", Default = false })
+local ToggleAimBotSkill = Tabs.Player:AddToggle("ToggleAimBotSkill", {Title = "Auto Aimbot Skill",Description = "ออโต้ล็อคสกิล", Default = false })
 ToggleAimBotSkill:OnChanged(function(Value)
     _G.Aimbot_Skill_Fov = Value
 end)
@@ -5231,7 +5232,7 @@ end)
 local Mastery = Tabs.Player:AddSection("Misc")
 
 
-local ToggleNoClip = Tabs.Player:AddToggle("ToggleNoClip", {Title = "No Clip",Description = "Xuyên Tường", Default = false })
+local ToggleNoClip = Tabs.Player:AddToggle("ToggleNoClip", {Title = "No Clip",Description = "ทะลุทุกอย่าง", Default = false })
 ToggleNoClip:OnChanged(function(value)
     _G.LOf = value
 end)
@@ -5251,7 +5252,7 @@ spawn(function()
 end)
 
 
-local ToggleWalkonWater = Tabs.Player:AddToggle("ToggleWalkonWater", {Title = "Walk on Water",Description = "Đi Trên nước", Default = true })
+local ToggleWalkonWater = Tabs.Player:AddToggle("ToggleWalkonWater", {Title = "Walk on Water",Description = "เดินบนน้ำ", Default = true })
 ToggleWalkonWater:OnChanged(function(Value)
   _G.WalkonWater = Value
 end)
@@ -5269,7 +5270,7 @@ spawn(function()
 end)
 
 
-local ToggleSpeedRun = Tabs.Player:AddToggle("ToggleSpeedRun", {Title = "Run Speed",Description = "Chạy Nhanh", Default = true })
+local ToggleSpeedRun = Tabs.Player:AddToggle("ToggleSpeedRun", {Title = "Run Speed",Description = "วิ่งไว", Default = true })
 ToggleSpeedRun:OnChanged(function(Value)
     InfAbility = Value
     if Value == false then
@@ -5323,7 +5324,7 @@ end
 
 
 
-local ToggleEnablePvp = Tabs.Player:AddToggle("ToggleEnablePvp", {Title = "Auto Enable PVP", Description = "Tự động bật PVP",Default = false })
+local ToggleEnablePvp = Tabs.Player:AddToggle("ToggleEnablePvp", {Title = "Auto Enable PVP", Description = "ออโต้เปิด PVP",Default = false })
 ToggleEnablePvp:OnChanged(function(Value)
   _G.EnabledPvP = Value
 end)
@@ -5488,7 +5489,7 @@ local Teleport = Tabs.Teleport:AddSection("Teleport World")
 
 Tabs.Teleport:AddButton({
     Title = "First Sea",
-    Description = "Sea 1",
+    Description = "โลก 1",
     Callback = function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelMain")
     end
@@ -5498,7 +5499,7 @@ Tabs.Teleport:AddButton({
 
 Tabs.Teleport:AddButton({
     Title = "Second Sea",
-    Description = "Sea 2",
+    Description = "โลก 2",
     Callback = function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelDressrosa")
     end
@@ -5508,7 +5509,7 @@ Tabs.Teleport:AddButton({
 
 Tabs.Teleport:AddButton({
     Title = "Third Sea",
-    Description = "Sea 3",
+    Description = "โลก 3",
     Callback = function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelZou")
     end
@@ -5581,7 +5582,7 @@ elseif Third_Sea then
 
 local DropdownIsland = Tabs.Teleport:AddDropdown("DropdownIsland",{
     Title = "Dropdown",
-    Description = "Chọn Đảo",
+    Description = "เลือกเกาะ",
     Values = IslandList,
     Multi = false,
     Default = 1,
@@ -5594,7 +5595,7 @@ end)
 
 Tabs.Teleport:AddButton({
     Title = "Tween",
-    Description = "Bay Đến Đảo",
+    Description = "บินไปเกาะที่เลือก",
     Callback = function()
             if _G.SelectIsland == "WindMill" then
                 toTarget(CFrame.new(979.79895019531, 16.516613006592, 1429.0466308594))
@@ -5700,7 +5701,7 @@ Tabs.Teleport:AddButton({
 
     Tabs.Teleport:AddButton({
         Title = "Stop Tween",
-        Description = "Dừng bay",
+        Description = "หยุดบิน",
         Callback = function()
            toTarget(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
         end
@@ -5723,7 +5724,7 @@ _G.SelectFruit = "Leopard-Leopard"
 
 local DropdownFruit = Tabs.Fruit:AddDropdown("DropdownFruit", {
     Title = "Select Fruit",
-    Description = "Chọn Trái Ác Quỷ",
+    Description = "เลือกผลไม้ปีศาจ",
     Values = Table_DevilFruitSniper,
     Multi = false,
     Default = 1,
@@ -5736,7 +5737,7 @@ DropdownFruit:OnChanged(function(Value)
 end)
 
 
-local ToggleFruit = Tabs.Fruit:AddToggle("ToggleFruit", {Title = "Buy Fruit Sniper",Description = "Mua Trái ác quỷ", Default = false })
+local ToggleFruit = Tabs.Fruit:AddToggle("ToggleFruit", {Title = "Buy Fruit Sniper",Description = "ซื้อผลไม้ปีศาจที่เลือกไว้", Default = false })
 ToggleFruit:OnChanged(function(Value)
     _G.AutoBuyFruitSniper = Value
 end)
@@ -5753,7 +5754,7 @@ spawn(function()
 end)
 
 
-local ToggleStore = Tabs.Fruit:AddToggle("ToggleStore", {Title = "Store Fruit",Description = "Cất Trái", Default = false })
+local ToggleStore = Tabs.Fruit:AddToggle("ToggleStore", {Title = "Store Fruit",Description = "ออโต้เก็บผล", Default = false })
 ToggleStore:OnChanged(function(Value)
     _G.AutoStoreFruit = Value
 end)
@@ -5876,7 +5877,7 @@ spawn(function()
 
 
 
-local ToggleRandomFruit = Tabs.Fruit:AddToggle("ToggleRandomFruit", {Title = "Random Fruit",Description = "Đổi Trái", Default = false })
+local ToggleRandomFruit = Tabs.Fruit:AddToggle("ToggleRandomFruit", {Title = "Random Fruit",Description = "ออโต้สุ่มผล", Default = false })
 ToggleRandomFruit:OnChanged(function(Value)
     _G.Random_Auto = Value
 end)
@@ -5891,7 +5892,7 @@ spawn(function()
     end)
 end)
 
-local ToggleCollect = Tabs.Fruit:AddToggle("ToggleCollect", {Title = "Collect Devil Fruit",Description = "Nhặt Trái", Default = false })
+local ToggleCollect = Tabs.Fruit:AddToggle("ToggleCollect", {Title = "Collect Devil Fruit",Description = "ออโต้เก็บผลทั้งแมพ", Default = false })
 ToggleCollect:OnChanged(function(Value)
     _G.Tweenfruit = Value
 end)
@@ -5912,7 +5913,7 @@ end)
 local Mastery = Tabs.Fruit:AddSection("Esp")
 
 
-local ToggleEspPlayer = Tabs.Fruit:AddToggle("ToggleEspPlayer", {Title = "Esp Player",Description = "Định vị người chơi", Default = false })
+local ToggleEspPlayer = Tabs.Fruit:AddToggle("ToggleEspPlayer", {Title = "Esp Player",Description = "จุดบอกตำแแหน่ง ผู้เล่นทุกคน", Default = false })
 
 ToggleEspPlayer:OnChanged(function(Value)
     ESPPlayer = Value
@@ -5921,7 +5922,7 @@ end)
 Options.ToggleEspPlayer:SetValue(false)
 
 
-local ToggleEspFruit = Tabs.Fruit:AddToggle("ToggleEspFruit", {Title = "Esp Devil Fruit",Description = "Định vị Trái", Default = false })
+local ToggleEspFruit = Tabs.Fruit:AddToggle("ToggleEspFruit", {Title = "Esp Devil Fruit",Description = "จุดบอกตำแแหน่ง ผลไม้ปีศาจ", Default = false })
 
 ToggleEspFruit:OnChanged(function(Value)
     DevilFruitESP = Value
@@ -5934,7 +5935,7 @@ Options.ToggleEspFruit:SetValue(false)
 
 
 
-local ToggleEspIsland = Tabs.Fruit:AddToggle("ToggleEspIsland", {Title = "Esp Island",Description = "Định vị đảo", Default = false })
+local ToggleEspIsland = Tabs.Fruit:AddToggle("ToggleEspIsland", {Title = "Esp Island",Description = "จุดบอกตำแแหน่ง ทุกเกาะในแมพ", Default = false })
 
 ToggleEspIsland:OnChanged(function(Value)
     IslandESP = Value
@@ -5945,7 +5946,7 @@ end)
 Options.ToggleEspIsland:SetValue(false)
 
 
-local ToggleEspFlower = Tabs.Fruit:AddToggle("ToggleEspFlower", {Title = "Esp Flower",Description = "Định vị Hoa", Default = false })
+local ToggleEspFlower = Tabs.Fruit:AddToggle("ToggleEspFlower", {Title = "Esp Flower",Description = "จุดบอกตำแแหน่ง ดอกไม้", Default = false })
 
 ToggleEspFlower:OnChanged(function(Value)
     FlowerESP = Value
@@ -5989,7 +5990,7 @@ local Chips = {"Flame","Ice","Quake","Light","Dark","Spider","Rumble","Magma","B
 
 local DropdownRaid = Tabs.Raid:AddDropdown("DropdownRaid", {
     Title = "Select Chip",
-    Description = "Chọn Chip",
+    Description = "เลือกชิปลงดัน",
     Values = Chips,
     Multi = false,
     Default = 1,
@@ -5999,7 +6000,7 @@ DropdownRaid:OnChanged(function(Value)
     SelectChip = Value
 end)
 
-local ToggleBuy = Tabs.Raid:AddToggle("ToggleBuy", {Title = "Buy Chip", Description = "Mua Chip",Default = false })
+local ToggleBuy = Tabs.Raid:AddToggle("ToggleBuy", {Title = "Buy Chip", Description = "ซื้อชิป",Default = false })
 ToggleBuy:OnChanged(function(Value)
     _G.Auto_Buy_Chips_Dungeon = Value
 end)
@@ -6020,7 +6021,7 @@ spawn(function()
 end)
 
 
-    local ToggleStart = Tabs.Raid:AddToggle("ToggleStart", {Title = "Start Raid",Description = "Vào Tập Kích", Default = false })
+    local ToggleStart = Tabs.Raid:AddToggle("ToggleStart", {Title = "Start Raid",Description = "ออโต้เริ่มดัน", Default = false })
     ToggleStart:OnChanged(function(Value)
         _G.Auto_StartRaid = Value
 end)
@@ -6045,7 +6046,7 @@ spawn(function()
 end)
 
 
-local ToggleKillAura = Tabs.Raid:AddToggle("ToggleKillAura", {Title = "Kill Aura",Description = "Giết Quái", Default = false })
+local ToggleKillAura = Tabs.Raid:AddToggle("ToggleKillAura", {Title = "Kill Aura",Description = "ฆ่ามอนเตอร์ทุกตัว", Default = false })
 ToggleKillAura:OnChanged(function(Value)
     KillAura = Value
 end)
@@ -6069,7 +6070,7 @@ spawn(function()
 end)
 
 
-local ToggleNextIsland = Tabs.Raid:AddToggle("ToggleNextIsland", {Title = "Next Island",Description = "Qua Đảo", Default = false })
+local ToggleNextIsland = Tabs.Raid:AddToggle("ToggleNextIsland", {Title = "Next Island",Description = "ออโต้เปลี่ยนเกาะ", Default = false })
 ToggleNextIsland:OnChanged(function(Value)
     AutoNextIsland = Value
 end)
@@ -6098,7 +6099,7 @@ end)
 
 
 
-local ToggleAwake = Tabs.Raid:AddToggle("ToggleAwake", {Title = "Auto Awake",Description = "Thức tỉnh V2", Default = false })
+local ToggleAwake = Tabs.Raid:AddToggle("ToggleAwake", {Title = "Auto Awake",Description = "ออโต้ซื้อสกิล V2", Default = false })
 ToggleAwake:OnChanged(function(Value)
     AutoAwakenAbilities = Value
 end)
@@ -6114,7 +6115,7 @@ spawn(function()
 end)
 
 
-local ToggleGetFruit = Tabs.Raid:AddToggle("ToggleGetFruit", {Title = "Get Fruit Low Bely",Description = "Lấy Trái Ít Bely", Default = false })
+local ToggleGetFruit = Tabs.Raid:AddToggle("ToggleGetFruit", {Title = "Get Fruit Low Bely",Description = "ดึงผลไม้ราคาน้อยมาลงดัน", Default = false })
 ToggleGetFruit:OnChanged(function(Value)
     _G.Autofruit = Value
 end)
@@ -6292,7 +6293,7 @@ end
 local Mastery = Tabs.Raid:AddSection("Law Raid")
 
 
-local ToggleLaw = Tabs.Raid:AddToggle("ToggleLaw", {Title = "Auto Law",Description = "Tự mua chip + Đánh boss law", Default = false })
+local ToggleLaw = Tabs.Raid:AddToggle("ToggleLaw", {Title = "Auto Law",Description = "ออโต้ซื้อชิปบอสลอ + ตีบอสลอ", Default = false })
 
 ToggleLaw:OnChanged(function(Value)
     Auto_Law = Value
@@ -6351,7 +6352,7 @@ end)
 
 Tabs.Race:AddButton({
     Title = "Timple Of Time",
-    Description = "Đền Thờ",
+    Description = "ที่ทำเผ่า V4",
     Callback = function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(28286.35546875, 14895.3017578125, 102.62469482421875))
     end
@@ -6360,7 +6361,7 @@ Tabs.Race:AddButton({
 
 Tabs.Race:AddButton({
     Title = "Lever Pull",
-    Description = "Cần Gạt",
+    Description = "จุดดึงขันโยก",
     Callback = function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(28286.35546875, 14895.3017578125, 102.62469482421875))
         wait(0.5)
@@ -6371,7 +6372,7 @@ Tabs.Race:AddButton({
 
 Tabs.Race:AddButton({
     Title = "Acient One",
-    Description = "Npc Mua Bánh Răng",
+    Description = "NPC อัพเกรดเกียร์",
     Callback = function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(28286.35546875, 14895.3017578125, 102.62469482421875))
         wait(0.5)
@@ -6383,7 +6384,7 @@ Tabs.Race:AddButton({
 local Mastery = Tabs.Race:AddSection("Auto Race")
 Tabs.Race:AddButton({
     Title = "Race Door",
-    Description = "Tộc Của bạn",
+    Description = "ประตูประจำเผ่า",
     Callback = function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(28286.35546875, 14895.3017578125, 102.62469482421875))
             wait(0.5)
@@ -6404,14 +6405,14 @@ Tabs.Race:AddButton({
 })
 
 
-local ToggleHumanandghoul = Tabs.Race:AddToggle("ToggleHumanandghoul", {Title = "Auto [ Human / Ghoul ] Trial",Description = "Hoàn thành Tộc quỷ + người", Default = false })
+local ToggleHumanandghoul = Tabs.Race:AddToggle("ToggleHumanandghoul", {Title = "Auto [ Human / Ghoul ] Trial",Description = "ออโต้ผ่านเควส มนุษย์/กูล ", Default = false })
 ToggleHumanandghoul:OnChanged(function(Value)
     KillAura = Value
 end)
 Options.ToggleHumanandghoul:SetValue(false)
 
 
-local ToggleAutotrial = Tabs.Race:AddToggle("ToggleAutotrial", {Title = "Auto Trial",Description = "Tụ Động hoàn thành ải", Default = false })
+local ToggleAutotrial = Tabs.Race:AddToggle("ToggleAutotrial", {Title = "Auto Trial",Description = "ออโต้ผ่านเควส ทุกเผ่า", Default = false })
 ToggleAutotrial:OnChanged(function(Value)
     _G.AutoQuestRace = Value
 end)
@@ -6536,7 +6537,7 @@ end)
 
 local Mastery = Tabs.Race:AddSection("Auto Train")
 
-local ToggleAutoAcientQuest = Tabs.Race:AddToggle("ToggleAutoAcientQuest", {Title = "Auto Train",Description = "cày + bật tộc", Default = false })
+local ToggleAutoAcientQuest = Tabs.Race:AddToggle("ToggleAutoAcientQuest", {Title = "Auto Train",Description = "ออโต้ทำเควสอัพเกรดเกียร์", Default = false })
 ToggleAutoAcientQuest:OnChanged(function(Value)
     AutoFarmAcient = Value
 end)
@@ -6612,14 +6613,14 @@ end)
 --------------------------------------------------------------------------------------------------------------------------------------------
 --shop
 
-local ToggleRandomBone = Tabs.Shop:AddToggle("ToggleRandomBone", {Title = "Random Bone",Description = "Đổi xương", Default = false })
+local ToggleRandomBone = Tabs.Shop:AddToggle("ToggleRandomBone", {Title = "Random Bone",Description = "สุ่มกระดูก 500/รอบ", Default = false })
 ToggleRandomBone:OnChanged(function(Value)  
 		_G.AutoRandomBone = Value
 end)
 Options.ToggleRandomBone:SetValue(false)
 	
 spawn(function()
-	while wait(0.0000000000000000000000000000000000000000000000000001) do
+	while wait(0.1) do
 	if _G.AutoRandomBone then
 	local args = {
 	 [1] = "Bones",
@@ -6635,7 +6636,7 @@ spawn(function()
 
 Tabs.Shop:AddButton({
 	Title = "Geppo",
-	Description = "Mua nhảy liên tục",
+	Description = "ซื้อกระโดดกลางอากาศ",
 	Callback = function()
 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Geppo")
 	end
@@ -6645,7 +6646,7 @@ Tabs.Shop:AddButton({
 
 Tabs.Shop:AddButton({
 	Title = "Buso Haki",
-	Description = "Mua haki vũ trang",
+	Description = "ซื้อฮาคิ",
 	Callback = function()
 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Buso")
 	end
@@ -6656,7 +6657,7 @@ Tabs.Shop:AddButton({
 
 Tabs.Shop:AddButton({
 	Title = "Soru",
-	Description = "Mua dịch chuyển (soru)",
+	Description = "ซื้อโซรุ",
 	Callback = function()
 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Soru")
 	end
@@ -6665,7 +6666,7 @@ Tabs.Shop:AddButton({
 
 Tabs.Shop:AddButton({
 	Title = "Ken Haki",
-	Description = "Mua haki quan sát",
+	Description = "ซื้อฮาคิสังเกต",
 	Callback = function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("KenTalk","Buy")
 	end
@@ -6676,7 +6677,7 @@ local Mastery = Tabs.Shop:AddSection("Fighting Styles")
 
 Tabs.Shop:AddButton({
 	Title = "Black Leg",
-	Description = "Mua black leg",
+	Description = "ซื้อ ขาไฟ V1",
 	Callback = function()
 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyBlackLeg")
 	end
@@ -6684,21 +6685,21 @@ Tabs.Shop:AddButton({
 
 Tabs.Shop:AddButton({
 	Title = "Electro",
-	Description = "Mua electro",
+	Description = "ซื้อหมัดสายฟ้า V1",
 	Callback = function()
 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectro")
 	end
 })
 Tabs.Shop:AddButton({
 	Title = "Fishman Karate",
-	Description = "Mua fishman karate",
+	Description = "ซื้อหมัดมนุษย์เงือก V1",
 	Callback = function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyFishmanKarate")
 	end
 })
 Tabs.Shop:AddButton({
 	Title = "Dragon Claw",
-	Description = "Mua dragon claw",
+	Description = "ซื้อหมัดมังกร V1",
 	Callback = function()
 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","DragonClaw","1")
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","DragonClaw","2")
@@ -6706,21 +6707,21 @@ Tabs.Shop:AddButton({
 })
 Tabs.Shop:AddButton({
 	Title = "Superhuman",
-	Description = "Mua superhuman",
+	Description = "ซื้อหมัดซุปเปอร์ฮิวแมน",
 	Callback = function()
 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySuperhuman")
 	end
 })
 Tabs.Shop:AddButton({
 	Title = "Death Step",
-	Description = "Mua Death Step",
+	Description = "ซื้อขาไฟ V2",
 	Callback = function()
 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDeathStep")
 	end
 })
 Tabs.Shop:AddButton({
 	Title = "Sharkman Karate",
-	Description = "Mua sharkman karate",
+	Description = "ซื้อหมัดมนุษย์เงือก V2",
 	Callback = function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate",true)
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate")
@@ -6728,21 +6729,21 @@ Tabs.Shop:AddButton({
 })
 Tabs.Shop:AddButton({
 	Title = "Electric Claw",
-	Description = "Mua electric claw",
+	Description = "ซื้อหมัดสายฟ้า V2",
 	Callback = function()
 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw")
 	end
 })
 Tabs.Shop:AddButton({
 	Title = "Dragon Talon",
-	Description = "Mua dragon talon",
+	Description = "ซื้อหมัดมังกร V2",
 	Callback = function()
 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
 	end
 })
 Tabs.Shop:AddButton({
 	Title = "Godhuman",
-	Description = "Mua godhuman",
+	Description = "ซื้อหมัดก็อตฮิวแมน",
 	Callback = function()
 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman")
 	end
@@ -6753,7 +6754,7 @@ local Mastery = Tabs.Shop:AddSection("Misc Items")
 
 Tabs.Shop:AddButton({
 	Title = "Refund Stats",
-	Description = "Hoàn trả chỉ số",
+	Description = "รีแสตท 2500/f",
 	Callback = function()
 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","Refund","1")
 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","Refund","2")
@@ -6761,7 +6762,7 @@ Tabs.Shop:AddButton({
 })
 Tabs.Shop:AddButton({
 	Title = "Reroll Race",
-	Description = "Đổi tộc",
+	Description = "รีเผ่า 3000/f",
 	Callback = function()
 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","Reroll","1")
 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","Reroll","2")
@@ -6775,7 +6776,7 @@ Tabs.Shop:AddButton({
 
 Tabs.Misc:AddButton({
 	Title = "Rejoin Server",
-	Description = "tham gia lại máy chủ",
+	Description = "รีจอยเซิฟเวอร์",
 	Callback = function()
 		game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
 	end
@@ -6784,7 +6785,7 @@ Tabs.Misc:AddButton({
 
 Tabs.Misc:AddButton({
 	Title = "Hop Server",
-	Description = "Đổi máy chủ",
+	Description = "เปลี่ยนเซิฟเวอร์",
 	Callback = function()
 		Hop()
 	end
@@ -6858,7 +6859,7 @@ local Mastery = Tabs.Misc:AddSection("Team")
 
 Tabs.Misc:AddButton({
 	Title = "Join Pirates Team",
-	Description = "Vào hải tặc",
+	Description = "เข้าทีมโจรสลัด",
 	Callback = function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetTeam","Pirates") 
 	end
@@ -6867,7 +6868,7 @@ Tabs.Misc:AddButton({
 
 Tabs.Misc:AddButton({
 	Title = "Join Marines Team",
-	Description = "Vào hải quân",
+	Description = "เข้าทีมทหารเรือ",
 	Callback = function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetTeam","Marines") 
 	end
@@ -6877,7 +6878,7 @@ local Mastery = Tabs.Misc:AddSection("Open Ui")
 
 Tabs.Misc:AddButton({
 	Title = "Devil Shop Menu",
-	Description = "Mở cửa hàng trái",
+	Description = "เปิดหน้าขายผลไม้ปีศาจ",
 	Callback = function()
 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("GetFruits")
         game:GetService("Players").LocalPlayer.PlayerGui.Main.FruitShop.Visible = true
@@ -6888,7 +6889,7 @@ Tabs.Misc:AddButton({
 
 Tabs.Misc:AddButton({
 	Title = "Color Haki Menu",
-	Description = "Mở bảng haki",
+	Description = "เปิดหน้าสีฮาคิ",
 	Callback = function()
 		game.Players.localPlayer.PlayerGui.Main.Colors.Visible = true
 	end
@@ -6898,7 +6899,7 @@ Tabs.Misc:AddButton({
 
 Tabs.Misc:AddButton({
 	Title = "Title Name Menu",
-	Description = "Mở bảng danh hiệu",
+	Description = "เปิดหน้ายศ",
 	Callback = function()
 		local args = {
 			[1] = "getTitles"
@@ -6912,42 +6913,16 @@ Tabs.Misc:AddButton({
 
 Tabs.Misc:AddButton({
 	Title = "Awakening Menu",
-	Description = "Mở bảng thức tỉnh chiêu",
+	Description = "เปิดหน้าสกิลผลตื่น",
 	Callback = function()
         game:GetService("Players").LocalPlayer.PlayerGui.Main.AwakeningToggler.Visible = true
 	end
 })
 
-
-local Mastery = Tabs.Misc:AddSection("Troll")
-
-
-Tabs.Misc:AddButton({
-	Title = "Rain Fruit",
-	Description = "Mưa trái ác quỷ",
-	Callback = function()
-        for i, v in pairs(game:GetObjects("rbxassetid://14759368201")[1]:GetChildren()) do
-            v.Parent = game.Workspace.Map
-            v:MoveTo(game.Players.LocalPlayer.Character.PrimaryPart.Position + Vector3.new(math.random(-50, 50), 100, math.random(-50, 50)))
-            if v.Fruit:FindFirstChild("AnimationController") then
-                v.Fruit:FindFirstChild("AnimationController"):LoadAnimation(v.Fruit:FindFirstChild("Idle")):Play()
-            end
-            v.Handle.Touched:Connect(function(otherPart)
-                if otherPart.Parent == game.Players.LocalPlayer.Character then
-                    v.Parent = game.Players.LocalPlayer.Backpack
-                    game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-                end
-            end)
-        end
-	end
-})
-
-
-
 local Mastery = Tabs.Misc:AddSection("Misc")
 
 
-local ToggleRejoin = Tabs.Misc:AddToggle("ToggleRejoin", {Title = "Auto Rejoin", Description = "Tự động vào lại khi bị văng",Default = true })
+local ToggleRejoin = Tabs.Misc:AddToggle("ToggleRejoin", {Title = "Auto Rejoin", Description = "ออโต้รีจอยเซิฟเวอร์",Default = true })
 ToggleRejoin:OnChanged(function(Value)
 	_G.AutoRejoin = Value
 end)
@@ -6971,7 +6946,7 @@ spawn(function()
 
 Tabs.Misc:AddButton({
 	Title = "Show Items",
-	Description = "Hiện thị vật phẩm",
+	Description = "ตัดรูปโชว์ไอเท็ม",
 	Callback = function()
 		do
 			local ui = game:GetService("CoreGui").RobloxGui.Modules.Profile:FindFirstChild("UILibrary")
@@ -7209,7 +7184,7 @@ local Mastery = Tabs.Misc:AddSection("Day")
 
 Tabs.Misc:AddButton({
 	Title = "Remove Fog",
-	Description = "Xóa xương mù",
+	Description = "ลบหมอก",
 	Callback = function()
         NoFog()
     end
@@ -7232,7 +7207,7 @@ if First_Sea or Second_Sea then
 end
 
 if Third_Sea then
-local ToggleFindMoon = Tabs.Hop:AddToggle("ToggleFindMoon", {Title = "Find Full Moon",Description = "Tìm trăng tròn", Default = false })
+local ToggleFindMoon = Tabs.Hop:AddToggle("ToggleFindMoon", {Title = "Find Full Moon",Description = "เปลี่ยนเซิฟหาเซิฟ พระจันทร์เต็มดวง", Default = false })
 ToggleFindMoon:OnChanged(function(Value)
     _G.AutoFindMoon = Value
 end)
@@ -7276,7 +7251,7 @@ spawn(function()
 end)
 
 
-local ToggleMirageIsland = Tabs.Hop:AddToggle("ToggleMirageIsland", {Title = "Find Mirage Island",Description = "Tìm đảo bí ẩn", Default = false })
+local ToggleMirageIsland = Tabs.Hop:AddToggle("ToggleMirageIsland", {Title = "Find Mirage Island",Description = "เปลี่ยนเซิฟหาเซิฟ เกาะลับ", Default = false })
 ToggleMirageIsland:OnChanged(function(Value)
     _G.FindMirageIsland = Value
 end)
@@ -7298,7 +7273,7 @@ end)
 end
 ----------------------------------------------------------------------------------------------------------------------------------------------
 InterfaceManager:SetFolder("DayScriptHub")
-SaveManager:SetFolder("DaytHub/specific-game")
+SaveManager:SetFolder("DayHub/specific-game")
 Window:SelectTab(1)
 Fluent:Notify({
     Title = "Day Hub | Blox Fruit",
