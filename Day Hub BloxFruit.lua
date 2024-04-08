@@ -3665,9 +3665,6 @@ local boss = Tabs.Main:AddSection("Boss Farm")
             end
         end
     end
-    for _, name in pairs(Boss) do
-        table.insert(bossCheck, name)
-    end
     local DropdownBoss = Tabs.Main:AddDropdown("DropdownBoss", {
         Title = "Dropdown",
         Description = "เลือกบอส",
