@@ -5102,25 +5102,6 @@ for k,v in pairs(game:GetService("Workspace").MonsterBarriers:GetChildren()) do 
 
 for k,v in pairs(game:GetService("Workspace").Map.OuterInvisWalls:GetChildren()) do v:Destroy() end
 local TvkStatCache = game:GetService("ReplicatedStorage").Events.RetrievePlayerStats:InvokeServer()
-spawn(function() 
-    while wait(1) do 
-        TvkStatCache =game:GetService("ReplicatedStorage").Events.RetrievePlayerStats:InvokeServer()
-        getfenv().TvkStatCache = TvkStatCache
-    end
-end)
-getfenv().TvkStatCache = TvkStatCache
-
-Exploit = "Synapse X"
-if http_request and secure_load then
-    Exploit = "Sentinel"
-    if syn then
-        setreadonly(syn, false)
-        syn.request = http_request
-    else
-        syn = {}
-        syn.request = http_request
-    end
-end
 function fspawn(f) 
     return coroutine.wrap(f)()
 end
