@@ -1355,6 +1355,7 @@ DropdownSelectWeapon:SetValue('Melee')
 DropdownSelectWeapon:OnChanged(function(Value)
     SelectWeapon = Value
 end)
+end
 InterfaceManager:SetFolder("Day Hub Next Genaration")
 SaveManager:SetFolder("Day Hub Next Genaration/specific-game")
 Window:SelectTab(1)
