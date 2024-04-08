@@ -3648,19 +3648,30 @@ end
 
 local boss = Tabs.Main:AddSection("Boss Farm")
 
-    if First_Sea then
+    --[[if First_Sea then
 		tableBoss = {"The Gorilla King","Bobby","Yeti","Mob Leader","Vice Admiral","Warden","Chief Warden","Swan","Magma Admiral","Fishman Lord","Wysper","Thunder God","Cyborg","Saber Expert"}
 	elseif Second_Sea then
 		tableBoss = {"Diamond","Jeremy","Fajita","Don Swan","Smoke Admiral","Cursed Captain","Darkbeard","Order","Awakened Ice Admiral","Tide Keeper"}
 	elseif Third_Sea then
-		tableBoss = {"Stone","Island Empress","Kilo Admiral","Captain Elephant","Beautiful Pirate","rip_indra True Form","Longma","Soul Reaper","Cake Queen"}
-	end
-
-
+		tableBoss = {"Stone","Island Empress","Kilo Admiral","Captain Elephant","Beautiful Pirate","rip_indra True Form","Longma","Soul Reaper","Cake Queen","Dough King"}
+	end--]]
+    local bossCheck = {}
+    local bossNames = { "The Gorilla King", "Bobby", "The Saw", "Yeti", "Mob Leader", "Vice Admiral", "Warden", "Chief Warden", "Swan", "Saber Expert", "Magma Admiral", "Fishman Lord", "Wysper", "Thunder God", "Cyborg", "Greybeard", "Diamond", "Jeremy", "Fajita", "Don Swan", "Smoke Admiral", "Awakened Ice Admiral", "Tide Keeper", "Order", "Darkbeard", "Cursed Captain", "Stone", "Island Empress", "Kilo Admiral", "Captain Elephant", "Beautiful Pirate", "Longma", "Cake Queen", "Soul Reaper", "Rip_Indra", "Cake Prince", "Dough King" }
+    
+    if First_Sea or Second_Sea or Third_Sea then
+        for _, bossName in pairs(bossNames) do
+            if game:GetService("ReplicatedStorage"):FindFirstChild(bossName) then
+                table.insert(bossCheck, bossName)
+            end
+        end
+    end
+    for _, name in pairs(Boss) do
+        table.insert(bossCheck, name)
+    end
     local DropdownBoss = Tabs.Main:AddDropdown("DropdownBoss", {
         Title = "Dropdown",
         Description = "เลือกบอส",
-        Values = tableBoss,
+        Values = bossCheck,
         Multi = false,
         Default = 1,
     })
@@ -3681,7 +3692,7 @@ local boss = Tabs.Main:AddSection("Boss Farm")
 
     Options.ToggleAutoFarmBoss:SetValue(false)
 
-    spawn(function()
+    task.spawn(function()
         while wait() do
             if _G.AutoBoss then
                 pcall(function()
@@ -3689,14 +3700,16 @@ local boss = Tabs.Main:AddSection("Boss Farm")
                         for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                             if v.Name == _G.SelectBoss then
                                 if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-                                    repeat wait(_G.Fast_Delay)
-                                        AttackNoCoolDown()
+                                    repeat task.wait(_G.Fast_Delay)
+                                        AttackFunction()
                                         AutoHaki()
-                                        EquipTool(SelectWeapon)
+                                        EquipWeapon(SelectWeapon)
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
                                         v.HumanoidRootPart.Size = Vector3.new(80,80,80)                             
-                                        Tween(v.HumanoidRootPart.CFrame * Pos)
+                                        TP2(v.HumanoidRootPart.CFrame * CFrame.new(PosX,PosY,PosZ))
+                                        game:GetService("VirtualUser"):CaptureController()
+                                        game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                         sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
                                     until not _G.AutoBoss or not v.Parent or v.Humanoid.Health <= 0
                                 end
@@ -3704,13 +3717,30 @@ local boss = Tabs.Main:AddSection("Boss Farm")
                         end
                     else
                         if game:GetService("ReplicatedStorage"):FindFirstChild(_G.SelectBoss) then
-                            toTarget(game:GetService("ReplicatedStorage"):FindFirstChild(_G.SelectBoss).HumanoidRootPart.CFrame * CFrame.new(5,10,7))
+                            TP2(game:GetService("ReplicatedStorage"):FindFirstChild(_G.SelectBoss).HumanoidRootPart.CFrame * CFrame.new(5,10,2))
                         end
                     end
                 end)
             end
         end
     end)
+
+    Tabs.Main:AddButton({
+        Title = "Refresh Boss",
+        Description = "รีหน้าต่างเลือกบอส",
+        Callback = function()
+            BossName:Clear()
+            wait(0.1)
+            for i, v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
+                if (v.Name == "rip_indra" or v.Name == "Ice Admiral")
+                                    or (v.Name == "Saber Expert" or v.Name == "The Saw" or v.Name == "Greybeard" or v.Name == "Mob Leader" or v.Name == "The Gorilla King" or v.Name == "Bobby" or v.Name == "Yeti" or v.Name == "Vice Admiral" or v.Name == "Warden" or v.Name == "Chief Warden" or v.Name == "Swan" or v.Name == "Magma Admiral" or v.Name == "Fishman Lord" or v.Name == "Wysper" or v.Name == "Thunder God" or v.Name == "Cyborg")
+                                    or (v.Name == "Don Swan" or v.Name == "Diamond" or v.Name == "Jeremy" or v.Name == "Fajita" or v.Name == "Smoke Admiral" or v.Name == "Awakened Ice Admiral" or v.Name == "Tide Keeper" or v.Name == "Order" or v.Name == "Darkbeard")
+                                    or (v.Name == "Stone" or v.Name == "Island Empress" or v.Name == "Kilo Admiral" or v.Name == "Captain Elephant" or v.Name == "Beautiful Pirate" or v.Name == "Cake Queen" or v.Name == "rip_indra True Form" or v.Name == "Longma" or v.Name == "Soul Reaper" or v.Name == "Cake Prince" or v.Name == "Dough King") then
+                    BossName:Add(v.Name)
+                end
+            end
+        end
+    })
 
 
     local Material = Tabs.Main:AddSection("Material Farm")
