@@ -59,6 +59,7 @@ Fluent:Notify({
     Duration = 10
 })
 end
+--[[
 local DayHubStatuOn_Time = HomePage:Label("")
 local DayHubStatuOn_Player = HomePage:Label("Name : "..game.Players.LocalPlayer.Name)
 local DayHubStatuOn_FPS = HomePage:Label("")
@@ -78,7 +79,7 @@ task.spawn(function()
     while task.wait() do
         DUpdateInfo()
     end
-end)
+end)--]]
 -----------------------------------
 --tween
 function TP2(Pos)
