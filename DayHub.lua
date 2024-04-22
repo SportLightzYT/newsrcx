@@ -37,7 +37,8 @@ local Window = Fluent:CreateWindow({
 local Tabs = {
     Main = Window:AddTab({ Title = "Main", Icon = "" }),
     ItemsFarm = Window:AddTab({ Title = "Items Farm", Icon = "" }),
-    Settings = Window:AddTab({ Title = "Settings", Icon = "" }),
+    Status = Window:AddTab({ Title = "Status", Icon = "" }),
+    SettingFarm = Window:AddTab({ Title = "Settings Farm", Icon = "" }),
     SeaEvent = Window:AddTab({ Title = "Sea Event", Icon = "" }),
     Kitsune = Window:AddTab({ Title = "Kitsune", Icon = "" }),
     Mirage = Window:AddTab({ Title = "Mirage Island", Icon = "" }),
@@ -823,13 +824,6 @@ function CheckQuest()
         end
     end
 end
-Tabs.Main:AddButton({
-    Title = "Teleport Bypass",
-    Description = "รีเซ็ตตัวเพื่อไปเกาะที่กำหนด",
-    Callback = function()
-        TP2(CFrame.new(-290.7376708984375, 6.729952812194824, 5343.5537109375))
-    end
-})
 if First_Sea or Second_Sea then
     local Mastery = Tabs.Hop:AddSection("Thid Sea Please !!!")
 end
