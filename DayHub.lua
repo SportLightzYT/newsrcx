@@ -25,7 +25,6 @@ end
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
-
 local Window = Fluent:CreateWindow({
     Title = "Day Hub Next Genaration " .. Fluent.Version,
     SubTitle = "Premium Version | xSPLZ999",
@@ -58,6 +57,7 @@ Fluent:Notify({
     SubContent = "ตอนนี้กำลังโหลดสคริปต์ โปรดอย่าเปิดใช้งานฟังก์ชันใดๆ",
     Duration = 10
 })
+end
 if First_Sea or Second_Sea then
     local Mastery = Tabs.Hop:AddSection("Thid Sea Please !!!")
 end
