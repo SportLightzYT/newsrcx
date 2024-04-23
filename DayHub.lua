@@ -37,9 +37,9 @@ local Window = Fluent:CreateWindow({
 local Tabs = {
     Main = Window:AddTab({ Title = "Main", Icon = "home" }),
     ItemsFarm = Window:AddTab({ Title = "Items Farm", Icon = "brush" }),
-    Status = Window:AddTab({ Title = "Status", Icon = "plus-circle" }),
-    SettingFarm = Window:AddTab({ Title = "Settings Farm", Icon = "" }),
-    Stats = Window:AddTab({ Title = "Stats", Icon = "bar-chart" }),
+    Status = Window:AddTab({ Title = "Status", Icon = "bar-chart" }),
+    SettingFarm = Window:AddTab({ Title = "Settings Farm", Icon = "settings" }),
+    Stats = Window:AddTab({ Title = "Stats", Icon = "plus-circle" }),
     SeaEvent = Window:AddTab({ Title = "Sea Event", Icon = "waves" }),
     Kitsune = Window:AddTab({ Title = "Kitsune", Icon = "sparkle" }),
     Mirage = Window:AddTab({ Title = "Mirage Island", Icon = "plamtree" }),
@@ -805,25 +805,37 @@ function CheckQuest()
         end
     end
 end
-local DayHubStatuOn_Time = Tabs.Status:AddSection("")
-local DayHubStatuOn_Player = Tabs.Status:AddSection("Name : "..game.Players.LocalPlayer.Name)
-local DayHubStatuOn_FPS = Tabs.Status:AddSection("")
-local DayHubStatuOn_Ping = Tabs.Status:AddSection("")
-function DUpdateInfo()
-    local gameTime = math.floor(game:GetService("Workspace").DistributedGameTime + 0.5)
-    local hour = math.floor(gameTime / (60^2)) % 24
-    local minute = math.floor(gameTime / (60^1)) % 60
-    local second = math.floor(gameTime / (60^0)) % 60
-    local fps = game:GetService("Workspace"):GetRealPhysicsFPS()
-    local Ping = game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString()
-    DayHubStatuOn_Time:Set("Time : ".. hour .. " : " .. minute .. " : " .. second)
-    DayHubStatuOn_FPS:Set("FPS : "..fps)
-    DayHubStatuOn_Ping:Set("Ping : "..Ping)
-end
+local FM = Tabs.Status:AddSection("")
 task.spawn(function()
     while task.wait() do
-        DUpdateInfo()
-end
+        pcall(function()
+            if game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149431" then
+                FM:SetText("🌑 : Full Moon 100%")
+            elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149052" then
+                FM:SetText("🌒 : Full Moon 75%")
+            elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709143733" then
+                FM:SetText("🌓 : Full Moon 50%")
+            elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709150401" then
+                FM:SetText("🌗 : Full Moon 25%")
+            elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149680" then
+                FM:SetText("🌖 : Full Moon 15%")
+            else
+                FM:SetText("🌚 : Full Moon 0%")
+            end
+        end)
+    end
+end)
+local Mirragecheck = Tabs.Status:AddSection("")
+task.spawn(function()
+    pcall(function()
+        while wait() do
+            if game.Workspace._WorldOrigin.Locations:FindFirstChild('Mirage Island') then
+                Mirragecheck:SetText('🏝️: Mirage Island is Spawning')
+            else
+                Mirragecheck:SetText('❌: Mirage Island Not Found')
+            end
+        end
+    end)
 end)
 local JobID = Tabs.Hop:AddSection("Job ID Function")
 Tabs.Misc:AddButton({
