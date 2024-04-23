@@ -35,20 +35,22 @@ local Window = Fluent:CreateWindow({
     MinimizeKey = Enum.KeyCode.RightControl
 })
 local Tabs = {
-    Main = Window:AddTab({ Title = "Main", Icon = "" }),
-    ItemsFarm = Window:AddTab({ Title = "Items Farm", Icon = "" }),
-    Status = Window:AddTab({ Title = "Status", Icon = "" }),
+    Main = Window:AddTab({ Title = "Main", Icon = "home" }),
+    ItemsFarm = Window:AddTab({ Title = "Items Farm", Icon = "brush" }),
+    Status = Window:AddTab({ Title = "Status", Icon = "plus-circle" }),
     SettingFarm = Window:AddTab({ Title = "Settings Farm", Icon = "" }),
-    SeaEvent = Window:AddTab({ Title = "Sea Event", Icon = "" }),
-    Kitsune = Window:AddTab({ Title = "Kitsune", Icon = "" }),
-    Mirage = Window:AddTab({ Title = "Mirage Island", Icon = "" }),
-    Race = Window:AddTab({ Title = "Race Tabs", Icon = "" }),
-    Player = Window:AddTab({ Title = "Players Tabs", Icon = "" }),
-    Teleport = Window:AddTab({ Title = "Teleport Island", Icon = "" }),
-    Raid = Window:AddTab({ Title = "Raid", Icon = "" }),
-    Fruits = Window:AddTab({ Title = "Fruits", Icon = "" }),
-    Misc = Window:AddTab({ Title = "Miscellaneous", Icon = "" }),
-    Hop = Window:AddTab({ Title = "Hop Find Server", Icon = "" }),
+    Stats = Window:AddTab({ Title = "Stats", Icon = "bar-chart" }),
+    SeaEvent = Window:AddTab({ Title = "Sea Event", Icon = "waves" }),
+    Kitsune = Window:AddTab({ Title = "Kitsune", Icon = "sparkle" }),
+    Mirage = Window:AddTab({ Title = "Mirage Island", Icon = "plamtree" }),
+    Race = Window:AddTab({ Title = "Race Tabs", Icon = "sparkles" }),
+    Player = Window:AddTab({ Title = "Players Tabs", Icon = "box" }),
+    Teleport = Window:AddTab({ Title = "Teleport Island", Icon = "signpost-big" }),
+    Raid = Window:AddTab({ Title = "Raid", Icon = "swords" }),
+    Fruits = Window:AddTab({ Title = "Fruits", Icon = "cherry" }),
+    Shop = Window:AddTab({ Title = "Shop Tabs", Icon = "shopping-cart" }),
+    Misc = Window:AddTab({ Title = "Miscellaneous", Icon = "list-plus" }),
+    Hop = Window:AddTab({ Title = "Hop Find Server", Icon = "wifi" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" }),
 }
 local Options = Fluent.Options
@@ -60,27 +62,6 @@ Fluent:Notify({
     Duration = 10
 })
 end
---[[
-local DayHubStatuOn_Time = HomePage:Label("")
-local DayHubStatuOn_Player = HomePage:Label("Name : "..game.Players.LocalPlayer.Name)
-local DayHubStatuOn_FPS = HomePage:Label("")
-local DayHubStatuOn_Ping = HomePage:Label("")
-function DUpdateInfo()
-    local gameTime = math.floor(game:GetService("Workspace").DistributedGameTime + 0.5)
-    local hour = math.floor(gameTime / (60^2)) % 24
-    local minute = math.floor(gameTime / (60^1)) % 60
-    local second = math.floor(gameTime / (60^0)) % 60
-    local fps = game:GetService("Workspace"):GetRealPhysicsFPS()
-    local Ping = game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString()
-    DayHubStatuOn_Time:Set("Time : ".. hour .. " : " .. minute .. " : " .. second)
-    DayHubStatuOn_FPS:Set("FPS : "..fps)
-    DayHubStatuOn_Ping:Set("Ping : "..Ping)
-end
-task.spawn(function()
-    while task.wait() do
-        DUpdateInfo()
-    end
-end)--]]
 -----------------------------------
 --tween
 function TP2(Pos)
@@ -824,6 +805,54 @@ function CheckQuest()
         end
     end
 end
+local DayHubStatuOn_Time = Tabs.Status:AddSection("")
+local DayHubStatuOn_Player = Tabs.Status:AddSection("Name : "..game.Players.LocalPlayer.Name)
+local DayHubStatuOn_FPS = Tabs.Status:AddSection("")
+local DayHubStatuOn_Ping = Tabs.Status:AddSection("")
+function DUpdateInfo()
+    local gameTime = math.floor(game:GetService("Workspace").DistributedGameTime + 0.5)
+    local hour = math.floor(gameTime / (60^2)) % 24
+    local minute = math.floor(gameTime / (60^1)) % 60
+    local second = math.floor(gameTime / (60^0)) % 60
+    local fps = game:GetService("Workspace"):GetRealPhysicsFPS()
+    local Ping = game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString()
+    DayHubStatuOn_Time:Set("Time : ".. hour .. " : " .. minute .. " : " .. second)
+    DayHubStatuOn_FPS:Set("FPS : "..fps)
+    DayHubStatuOn_Ping:Set("Ping : "..Ping)
+end
+task.spawn(function()
+    while task.wait() do
+        DUpdateInfo()
+end
+end)
+local JobID = Tabs.Hop:AddSection("Job ID Function")
+Tabs.Misc:AddButton({
+	Title = "Copy Job ID",
+	Description = "คัดลอก Job ID",
+	Callback = function()
+        setclipboard(tostring(game.JobId))
+	end
+})
+local Input = Tabs.Misc:AddInput("Jobid", {
+    Title = "Input Job ID",
+    Description = "ใส่ Job ID",
+    Numeric = false, -- Only allows numbers
+    Finished = false, -- Only calls callback when you press enter
+    Callback = function(Value)
+        _G.Job = Value
+    end
+})
+
+Input:OnChanged(function(Value)
+    _G.Job = Value
+end)
+Tabs.Misc:AddButton({
+	Title = "Join Job ID",
+	Description = "เข้า Job ID",
+	Callback = function()
+        game:GetService("TeleportService"):TeleportToPlaceInstance(game.placeId,_G.Job, game.Players.LocalPlayer)
+	end
+})
 if First_Sea or Second_Sea then
     local Mastery = Tabs.Hop:AddSection("Thid Sea Please !!!")
 end
