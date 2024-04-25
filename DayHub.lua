@@ -2381,6 +2381,7 @@ Tabs.Shop:AddButton({
 })
 ----------------------------------------------------------------------------------------------------------------------------------
 end
+end
 SaveManager:SetLibrary(Fluent)
 InterfaceManager:SetLibrary(Fluent)
 SaveManager:IgnoreThemeSettings()
