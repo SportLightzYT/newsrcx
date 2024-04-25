@@ -1598,6 +1598,7 @@ Tabs.Teleport:AddButton({
                 end
             until not _G.TeleportIsland
         end
+    end
 })
 Tabs.Teleport:AddButton({
     Title = "Teleport Bypass",
