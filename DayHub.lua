@@ -956,7 +956,7 @@ if Third_Sea then
                                     AutoHaki()
                                     EquipTool(SelectWeapon)
                                     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                    toTarget(v.HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))
+                                    TP2(v.HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))
                                     v.HumanoidRootPart.Transparency = 1
                                     sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
 									--Click
@@ -964,12 +964,12 @@ if Third_Sea then
                             end
                         end
                     elseif game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Hallow Essence") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Hallow Essence") then
-                        repeat toTarget(CFrame.new(-8932.322265625, 146.83154296875, 6062.55078125)) wait() until (CFrame.new(-8932.322265625, 146.83154296875, 6062.55078125).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 8                        
+                        repeat TP2(CFrame.new(-8932.322265625, 146.83154296875, 6062.55078125)) wait() until (CFrame.new(-8932.322265625, 146.83154296875, 6062.55078125).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 8                        
                       wait(0.5)
                         EquipTool("Hallow Essence")
                     else
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Soul Reaper") then
-                            toTarget(game:GetService("ReplicatedStorage"):FindFirstChild("Soul Reaper").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
+                            TP2(game:GetService("ReplicatedStorage"):FindFirstChild("Soul Reaper").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
                         else
                         end
                     end
@@ -1907,7 +1907,7 @@ Tabs.Raid:AddButton({
 })
 --------------------------------------------------------------------------------------------------------------------------------------------
 --RaceV4
-
+local RaceV4 = Tabs.Race:AddSection("Race V4")
 
 Tabs.Race:AddButton({
     Title = "Timple Of Time",
@@ -2109,7 +2109,7 @@ spawn(function()
             if AutoFarmAcient then
                 if game.Players.LocalPlayer.Character.RaceTransformed.Value == true then
                     AutoFarmAcient = false
-                    toTarget(CFrame.new(216.211181640625, 126.9352035522461, -12599.0732421875))
+                    TP2(CFrame.new(216.211181640625, 126.9352035522461, -12599.0732421875))
                 end
             end
         end
@@ -2140,7 +2140,7 @@ spawn(function()
                         end
                     end
                 else
-                toTarget(AcientCframe)
+                TP2(AcientCframe)
                 end
             end)
         end
@@ -2380,6 +2380,8 @@ Tabs.Shop:AddButton({
 	end
 })
 ----------------------------------------------------------------------------------------------------------------------------------
+end
+end
 end
 end
 SaveManager:SetLibrary(Fluent)
